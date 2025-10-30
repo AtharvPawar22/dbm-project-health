@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthVault - Your Medical History</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⚕️</span>
+                <span class="logo-text">HealthVault</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showHome()" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showHistory()" class="nav-link">My History</a></li>
+                <li><a href="#" onclick="showAbout()" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Your Health, Your Records</h1>
+                <p>Securely store and access your complete medical history in one place</p>
+                <button class="cta-button" onclick="showHistory()">Access Your Records</button>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon"></div> 
+                <h3>Complete History</h3>
+                <p>Track all your medications, dosages, and treatment durations</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Easy Search</h3>
+                <p>Find any medical record instantly with powerful search</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Secure Storage</h3>
+                <p>Your health data is private and protected</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="section">
+        <div class="history-container">
+            <div class="history-header">
+                <h2>My Medical History</h2>
+                <p>Search and manage your health records</p>
+            </div>
+
+            <div class="search-section">
+                <input type="text" id="searchInput" class="search-box"
+                    placeholder="Search by medicine name, date, or condition..." onkeyup="filterRecords()">
+                <button class="add-record-btn" onclick="toggleAddForm()">+ Add Record</button>
+            </div>
+
+            <div id="addFormContainer" class="add-form-container hidden">
+                <div class="form-card">
+                    <h3>Add Medical Record</h3>
+                    <form onsubmit="addRecord(event)">
+                        <div class="form-group">
+                            <label>Medicine Name</label>
+                            <input type="text" id="medicineName" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Dosage</label>
+                                <input type="text" id="dosage" placeholder="e.g., 500mg" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Duration</label>
+                                <input type="text" id="duration" placeholder="e.g., 7 days" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date" id="startDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date" id="endDate" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Condition/Reason</label>
+                            <input type="text" id="condition" placeholder="e.g., Headache, Fever">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Record</button>
+                            <button type="button" class="btn-secondary" onclick="toggleAddForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="recordsContainer" class="records-container">
+            </div>
+
+            <div id="noRecords" class="no-records">
+                <p>No medical records found. Add your first record to get started.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="about-container">
+            <h2>About HealthVault</h2>
+            <div class="about-content">
+                <p>HealthVault is a secure platform designed to help you maintain a comprehensive record of your medical
+                    history. Keep track of medications, treatments, and healthcare events all in one organized place.
+                </p>
+                <p>Your health information is important. With HealthVault, you have complete control over your medical
+                    records and can access them whenever you need.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
